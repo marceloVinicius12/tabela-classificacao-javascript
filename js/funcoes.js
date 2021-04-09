@@ -37,7 +37,7 @@ function ExibirJogadoresNaTela(jogadores){
         html += "<td>" + jogadores[i].derrotas + "</td>";
         html += "<td>" + jogadores[i].pontos + "</td>";
         html += "<td><button onclick='AdicionarVitoria("+ i +")'>Vitoria</button></td>";
-        html += "<td><button onclick='AdicionarEmpate("+ i +")'>Empate</button></td>";
+        html += "<td><button onclick='AdicionarEmpate()'>Empate</button></td>";
         html += "<td><button onclick='AdicionarDerrota("+ i +")'>Derrota</button></td>";
         html += "</tr>";
     }
@@ -51,11 +51,13 @@ function AdicionarVitoria(i){
     ExibirJogadoresNaTela(jogadores);
 }
 
-function AdicionarEmpate(i){
+function AdicionarEmpate(){
+    for (let i = 0; i < jogadores.length; i++){
     let jogador = jogadores[i];
     jogador.empates++;
     jogador.pontos = calculaPontos(jogador);
     ExibirJogadoresNaTela(jogadores);
+}
 }
 function AdicionarDerrota(i){
     let jogador = jogadores[i];
